@@ -1,0 +1,22 @@
+{% extends "personal/header.html" %}
+{% load static %}
+
+{% block content %}
+{%if entry_list %}
+	<h4> {{entry_list.0.category}} </h4>
+	<ul>
+	{% for entry in entry_list %}
+		{% if entry.entry_image %}
+			<p> <img src="{{ entry.entry_image.url  }}" width = "200" height = "200"></img></p> 
+		{% endif %}
+
+		<li>{{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }}</a></li>
+		<p> {{ entry.position }} </p>
+		<p> {{ entry.body }}</p>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p> No entries.</p>
+{% endif %}
+
+{% endblock %}
