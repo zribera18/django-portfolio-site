@@ -25,6 +25,7 @@ class ProjectView(generic.ListView):
 	context_object_name = 'entry_list'
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Projects').order_by('-start_date')
+
 def index(request):
 	return render(request, 'personal/home.html')
 

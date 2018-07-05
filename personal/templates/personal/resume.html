@@ -12,11 +12,11 @@
 				<div class="container-fluid" >
 					<div class = "row equal">
 						<div class="col-sm-2">
-<!--							<center> -->
+							<center> 
 						        {% if entry.entry_image %}
-									<span class="helper"></span><img class="center" src="{{ entry.entry_image.url  }}" style='max-height:150px; max-width:150px;' align="middle" ></img>
+									<span class="helper"></span><img class="center" src="{{ entry.entry_image.url  }}" style='max-height:150px; max-width:150px;' align="middle"></img>
 						        {% endif %}
-<!--							</center> -->
+							</center> 
 						</div>
 						<div class="col-sm-8">
 							<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
