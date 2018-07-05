@@ -5,7 +5,9 @@
 	<title> Zach Ribera </title>
 	<meta charset="utf-8" />
 	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}" type="text/css"/>
+<!--	<link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type="text/css"/> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'personal/css/custom-css.css' %}" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<style type = "text/css">
@@ -43,6 +45,7 @@
 						<li><a href='/'>Home</a></li>
 						<li><a href='/education'>Education</a></li>
 						<li><a href='/experience'>Work Experience</a></li>
+						<li><a href='/projects'>Projects</a></li>
 						<li><a href='/blog/'>Blog</a></li>
 						<li><a href='/polls/'>Polls</a></li>
 					</ul>
@@ -55,7 +58,7 @@
 					{% block content %}
 					{% endblock %}
 				</div>
-			</div>
+			</div>  
 		</div>
 	</div>
 <footer>

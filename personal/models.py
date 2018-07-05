@@ -7,10 +7,18 @@ def get_upload_path(instance, filename):
 	return os.path.join(
 		instance.category, instance.title, filename)
 
+CATEGORIES = (
+	('Education', 'Education'),
+	('Work Experience', 'Work Experience'),
+	('Projects', 'Projects'),
+	('Ya', 'Ya'),
+)
+
 class Entry(models.Model):
 	title = models.CharField(max_length=140)
 	position = models.CharField(max_length=140, blank=True)
-	category = models.CharField(max_length=140)
+	location = models.CharField(max_length=140, blank=True)
+	category = models.CharField(max_length=140, choices=CATEGORIES)
 	body = models.TextField()
 	start_date = models.DateTimeField('start date')
 	end_date = models.DateTimeField('end date')

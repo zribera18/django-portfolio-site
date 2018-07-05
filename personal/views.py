@@ -19,6 +19,12 @@ class ExperienceView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Work Experience').order_by('-start_date')
 
+class ProjectView(generic.ListView):
+	model = Entry
+	template_name = 'personal/resume.html'
+	context_object_name = 'entry_list'
+	def get_queryset(self):
+		return Entry.objects.filter(category = 'Projects').order_by('-start_date')
 def index(request):
 	return render(request, 'personal/home.html')
 
