@@ -1,0 +1,30 @@
+{% extends "personal/header.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+{%if entry_list %}
+    <h4> {{entry_list.0.category}} </h4>
+    <br>
+<ul>
+<!-- <body class="body"> -->
+	<div class="container-fluid" >
+
+		    {% for entry in entry_list %}
+        <div class="row ">
+			<div class="col-sm-4">
+			 	{% if entry.entry_image %}
+		 			<span class="helper"></span><img class="" src="{{ entry.entry_image.url  }}" style='max-height:250px; max-width:250px;' align="middle"></img>
+				 {% endif %}
+			 	<p> {{ entry.title }} </p>
+			</div>
+    		{% endfor %}
+		</div>
+	</div>
+<!-- </body> -->
+</ul>
+{% else %}
+    <p> No entries.</p>
+{% endif %}
+
+{% endblock %}
