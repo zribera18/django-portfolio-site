@@ -2,27 +2,53 @@
 {% load static %}
 {% load staticfiles %}
 
+
 {% block content %}
 {%if entry_list %}
     <h4> {{entry_list.0.category}} </h4>
     <br>
-<ul>
 <!-- <body class="body"> -->
-	<div class="container-fluid" >
-
+<!--	<div class="container-fluid" >
+        <div class="row equal">
+            <div class="column">
 		    {% for entry in entry_list %}
-        <div class="row ">
-			<div class="col-sm-4">
 			 	{% if entry.entry_image %}
-		 			<span class="helper"></span><img class="" src="{{ entry.entry_image.url  }}" style='max-height:250px; max-width:250px;' align="middle"></img>
+		 			<img class="" src="{{ entry.entry_image.url  }}" style='max-height:250px; max-width:250px;' align="middle"></img>
 				 {% endif %}
 			 	<p> {{ entry.title }} </p>
 			</div>
     		{% endfor %}
 		</div>
-	</div>
+	</div> -->
 <!-- </body> -->
-</ul>
+
+<!-- <div class="container">
+<div class="row" style="display:flex;flex-wrap: wrap;'">
+	{% for entry in entry_list %}
+	<div class="col-md-4" style="float:left; width:250px; height:250px; flex: 50%;">		
+		<img src="{{ entry.entry_image.url }}" class="img-thumbnail" alt="">
+		<br>
+		<p> {{entry.title }} </p>
+	</div>
+	{% endfor %}
+</div>
+</div> -->
+
+<div class="row display-flex">
+	{% for entry in entry_list %}
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<a target="_blank" href="{{ entry.entry_image }}">
+					<img src="{{ entry.entry_image.url }}" alt="{{ entry.title }}" width="200" height="300">
+	                <div class="caption">
+    	                <p> {{ entry.body }} </p>
+        	        </div>
+                </a>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+
 {% else %}
     <p> No entries.</p>
 {% endif %}
