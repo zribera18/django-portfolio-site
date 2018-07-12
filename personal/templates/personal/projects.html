@@ -34,20 +34,24 @@
 </div>
 </div> -->
 
-<div class="row display-flex">
+<div class="row">
 	{% for entry in entry_list %}
-		<div class="col-sm-6 col-md-4">
+		<div class="col-sm-12 col-md-6">
 			<div class="thumbnail">
 				<a target="_blank" href="{{ entry.entry_image }}">
-					<img src="{{ entry.entry_image.url }}" alt="{{ entry.title }}" width="200" height="300">
+					<img src="{{ entry.entry_image.url }}" alt="{{ entry.title }}" style="max-width:100%; height:auto">
 	                <div class="caption">
+						<h5> {{ entry.title }} </h5>
     	                <p> {{ entry.body }} </p>
         	        </div>
                 </a>
 			</div>
 		</div>
 	{% endfor %}
-</div>
+</div> 
+<br>
+
+<br>
 
 {% else %}
     <p> No entries.</p>

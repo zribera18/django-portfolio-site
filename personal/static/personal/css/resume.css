@@ -1,0 +1,16 @@
+.image {
+	margin-left:10px;
+	float:left;
+}
+
+.center {
+	border-spacing:2px;
+	border-radius:10px;
+	max-height:150px;
+	max-width:150px;
+	position:absolute;
+	top:50%;
+	margin-top:-75px;
+}
+
+

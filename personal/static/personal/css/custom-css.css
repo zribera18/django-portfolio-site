@@ -7,19 +7,38 @@
 	background-color: #ddd;
 }
 
-@media (min-width: 768px){
+@media (min-width: 800px){
 	.row.equal > div {
 		display: table-cell;
 		float: none;
 		}
 }
 
-img.center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50%; 
-	margin-bottom: 50%;
+@media (min-width:400px){
+	body {
+		background-color: lightgreen;
+	}
+}
+
+@media (min-width: 800px){
+	body {
+		background-color:lavender;
+	}
+}
+
+@media screen and (min-width: 1000px){
+	img.center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50%; 
+		margin-bottom: 50%;
+	}
+}
+
+@media screen and (min-width: 5px){
+	img.center {
+	}
 }
 
 .helper {

@@ -6,29 +6,27 @@
 {%if entry_list %}
 	<h4> {{entry_list.0.category}} </h4>
 	<br>
-	{% for entry in entry_list %}
-		<ul>
-			<body class="body">
-				<div class="container-fluid" >
-					<div class = "row equal">
-						<div class="col-sm-2">
-							<center> 
-						        {% if entry.entry_image %}
-									<span class="helper"></span><img class="center" src="{{ entry.entry_image.url  }}" style='max-height:150px; max-width:150px;' align="middle"></img>
-						        {% endif %}
-							</center> 
-						</div>
-						<div class="col-sm-8">
-							<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
-							<p> {{ entry.position }} </p>
-							<p><i> {{ entry.location}} </i></p>
-							<p> {{ entry.body | linebreaks }}</p>
-						</div>
-					</div>
+	
+	<div class="container">
+		{% for entry in entry_list %}
+				<div class = "row" style="display: flex;
+    flex-wrap: wrap;">
+				<div class="col-md-2" style="margin-left:10px; float:left;">	
+						{% if entry.entry_image %}
+							<img class = "thumbnail" src="{{ entry.entry_image.url }}" style='border-spacing:2px;border-radius:10px; max-height:150px; max-width:150px; position:absolute; top:50%; margin-top:-75px;' align="middle"></img>
+						{% endif %}
 				</div>
-			</body>
-		</ul>
-	{% endfor %}
+				<div class="col-md-8">
+					<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
+					<p> {{ entry.position }} </p>
+					<p><i> {{ entry.location}} </i></p>
+					<p> {{ entry.body | linebreaks }}</p>
+				</div>
+			</div>
+			<br>
+			<br>
+		{% endfor %}
+	</div>
 {% else %}
 	<p> No entries.</p>
 {% endif %}
