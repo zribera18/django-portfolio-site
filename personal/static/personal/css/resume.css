@@ -1,7 +1,13 @@
+@media screen and (min-width: 800px){
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
 .image {
 	margin-left:10px;
 	float:left;
 }
+
 
 .center {
 	border-spacing:2px;
@@ -11,6 +17,17 @@
 	position:absolute;
 	top:50%;
 	margin-top:-75px;
+}
+}
+
+@media screen and (max-width:800px){
+	.center {
+		margin-left:5px;
+		float:left;
+		align:middle;
+		max-height:150px;
+		max-width:150px;
+	}
 }
 
 

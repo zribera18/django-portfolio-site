@@ -9,14 +9,13 @@
 	
 	<div class="container">
 		{% for entry in entry_list %}
-				<div class = "row" style="display: flex;
-    flex-wrap: wrap;">
-				<div class="col-md-2" style="margin-left:10px; float:left;">	
+				<div class = "row flex">
+				<div class="col-sm-12 col-md-2 image">	
 						{% if entry.entry_image %}
-							<img class = "thumbnail" src="{{ entry.entry_image.url }}" style='border-spacing:2px;border-radius:10px; max-height:150px; max-width:150px; position:absolute; top:50%; margin-top:-75px;' align="middle"></img>
+							<img class = "thumbnail center" src="{{ entry.entry_image.url }}" align="middle"></img>
 						{% endif %}
 				</div>
-				<div class="col-md-8">
+				<div class="col-sm-12 col-md-8">
 					<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
 					<p> {{ entry.position }} </p>
 					<p><i> {{ entry.location}} </i></p>
