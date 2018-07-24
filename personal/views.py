@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
-from .models import Entry
+from .models import Entry, Home
 # Create your views here.
 
 class EducationView(generic.ListView):
@@ -26,8 +26,15 @@ class ProjectView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Projects').order_by('-start_date')
 
-def index(request):
-	return render(request, 'personal/home.html')
+class HomeView(generic.ListView):
+	model = Home
+	template_name = 'personal/home.html'
+	context_object_name = 'entry_list'
+	def get_queryset(self):
+		return Home.objects.all()
+
+#def index(request):
+#	return render(request, 'personal/home.html')
 
 def contact(request):
 	return render(request, 'personal/basic.html', {'content':['If you would like to get in touch, please email me at:', 'zribera18@gmail.com', 'Or by phone at:', '(510)846-7086']})

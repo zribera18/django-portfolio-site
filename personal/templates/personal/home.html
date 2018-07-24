@@ -1,5 +1,22 @@
 {% extends "personal/header.html" %}
 {% block content %}
+
+{% if entry_list %}
+
+	<div class="container">
+		<p> Hey! Welcome to the website. </p>
+		{% for entry in entry_list %}
+			<p> {{ entry.title }} </p>
+
+			<p> {{ entry.body|safe }} </p>
+
+		{% endfor %}
+
+	</div>
+{% else %}
+	<p> Wow, such empty. </p>
+{% endif %}
+<!--
 <p> Hey! Welcome to the website. </p>
 
 <p> I am from california and went to school in SDSU   </p>
@@ -26,5 +43,5 @@
 
 <h4> Tools: </h4>
 <p> Wow, such empty! </p>
-
+-->
 {% endblock %}

@@ -10,5 +10,5 @@ urlpatterns = [
 	path('education/', views.EducationView.as_view(), name='education'),
 	path('experience/', views.ExperienceView.as_view(), name='experience'),
 	path('projects/', views.ProjectView.as_view(), name='projects'),
-	path('', views.index, name='index'),
+	path('', views.HomeView.as_view(), name='index'),
 	]
