@@ -10,12 +10,12 @@
 	<div class="container">
 		{% for entry in entry_list %}
 				<div class = "row flex">
-				<div class="col-sm-12 col-md-2 image">	
+				<div class="col-sm-12 col-md-12 col-lg-2 image">	
 						{% if entry.entry_image %}
-							<img class = "thumbnail center" src="{{ entry.entry_image.url }}" align="middle"></img>
+							<img class = "thumbnail center" src="{{ entry.entry_image.url }}" align="middle" style="height:150px; width:150px;"></img>
 						{% endif %}
 				</div>
-				<div class="col-sm-12 col-md-8">
+				<div class="col-sm-12 col-md-12 col-lg-8">
 					<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
 					<p> {{ entry.position }} </p>
 					<p><i> {{ entry.location}} </i></p>
