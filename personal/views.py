@@ -1,17 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
-from .models import Entry, Home
-# Create your views here.
+from .models import Entry, Basic
 
+# display image and summary of Education experience
 class EducationView(generic.ListView):
 	model = Entry
 	template_name = 'personal/resume.html'
 	context_object_name = 'entry_list'
-
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Education').order_by('-start_date')
-	
+
+#display image and summary of Career Experience
 class ExperienceView(generic.ListView):
 	model = Entry
 	template_name = 'personal/resume.html'
@@ -19,6 +19,7 @@ class ExperienceView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Work Experience').order_by('-start_date')
 
+# display images and summary of personal projects
 class ProjectView(generic.ListView):
 	model = Entry
 	template_name = 'personal/projects.html'
@@ -26,26 +27,18 @@ class ProjectView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Projects').order_by('-start_date')
 
+# like a cover letter, this is a place to introduce yourself
+# in admin view, you can input html to further style this section
 class HomeView(generic.ListView):
-	model = Home
-	template_name = 'personal/home.html'
+	model = Basic
+	template_name = 'personal/basic.html'
 	context_object_name = 'entry_list'
 	def get_queryset(self):
-		return Home.objects.all()
+		return Basic.objects.filter(category = 'Home')
 
-#def index(request):
-#	return render(request, 'personal/home.html')
-
-def contact(request):
-	return render(request, 'personal/basic.html', {'content':['If you would like to get in touch, please email me at:', 'zribera18@gmail.com', 'Or by phone at:', '(510)846-7086']})
-
-#def education(request):
-#	template_name = 'personal/resume.html'
-#	context_object_name = 'education_entry_list'
-	
-#	def get_queryset(self):
-#		return render(request, Entry.objects.filter(category='Education'))
-#	return render(request, 'personal/resume.html',  {'content':Entry.objects.filter(category='Education')})
-
-def experience(request):
-	return render(request, 'personal/basic.html', {'content':['Work Experience']})
+class ContactView(generic.ListView):
+	model = Basic
+	template_name = 'personal/basic.html'
+	context_object_name = 'entry_list'
+	def get_queryset(self):
+		return Basic.objects.filter(category = 'Contact')

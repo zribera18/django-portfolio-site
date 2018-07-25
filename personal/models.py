@@ -11,7 +11,11 @@ CATEGORIES = (
 	('Education', 'Education'),
 	('Work Experience', 'Work Experience'),
 	('Projects', 'Projects'),
-	('Ya', 'Ya'),
+)
+
+BASIC_CATEGORIES = (
+	('Contact', 'Contact'),
+    ('Home', 'Home'),
 )
 
 class Entry(models.Model):
@@ -27,8 +31,9 @@ class Entry(models.Model):
 	def __str__(self):
 		return self.title
 
-class Home(models.Model):
+class Basic(models.Model):
 	title = models.CharField(max_length=30)
+	category = models.CharField(max_length=140, choices=BASIC_CATEGORIES)
 	body = models.TextField()
 
 	def __str__(self):

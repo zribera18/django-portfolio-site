@@ -1,6 +1,15 @@
 {% extends "personal/header.html" %}
 {% block content %}
-	{% for c in content %}
-		<p>{{c}}</p>
-	{% endfor %}
+    {% if entry_list %}
+        <div class="container">
+            {% for entry in entry_list %}
+                <h2> {{ entry.title }} </h2>
+
+                <p> {{ entry.body|safe|linebreaks }} </p>
+
+            {% endfor %}
+        </div>
+    {% else %}
+        <p> Wow, such empty. </p>
+    {% endif %}
 {% endblock %}
