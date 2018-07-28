@@ -1,0 +1,30 @@
+{% extends "personal/header.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+{% if entry_list %}
+	<h4> {{ entry_list.0.category }} </h4>
+	<br>
+
+	<div class="container-fluid">
+		{% for entry in entry_list %}
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="{{ entry.entry_image.url }}">
+						<img src="{{ entry.entry_image.url }}" alt="{{ entry.title }}" width="600" height="400"></img>
+					</a>
+					<div class="desc"> 
+						<h4> {{entry.title }} </h4>
+						<p> {{ entry.start_date }} - {{ entry.end_date }} </p>
+						<p> {{ entry.body|linebreaks }} </p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% else %}
+	<p> No entries. </p>
+{% endif %}
+
+{% endblock %}
