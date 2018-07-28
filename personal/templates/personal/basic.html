@@ -1,12 +1,12 @@
 {% extends "personal/header.html" %}
 {% block content %}
     {% if entry_list %}
-        <div class="container">
+        <div class="container-fluid">
             {% for entry in entry_list %}
                 <h4> {{ entry.title }} </h4>
-
+			<ul>
                 <p> {{ entry.body|safe|linebreaks }} </p>
-
+			</ul>
             {% endfor %}
         </div>
     {% else %}
