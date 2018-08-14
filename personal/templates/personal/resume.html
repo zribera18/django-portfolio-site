@@ -19,7 +19,7 @@
 					<p><h5><b> {{ entry.title }} --- {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y"  }} </b></h5></p>
 					<p> {{ entry.position }} </p>
 					<p><i> {{ entry.location}} </i></p>
-					<p> {{ entry.body | linebreaks }}</p>
+					<p> {{ entry.body | safe }}</p>
 				</div>
 			</div>
 			<br>
