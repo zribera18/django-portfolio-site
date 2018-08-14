@@ -16,7 +16,7 @@
 					</a>
 					<div class="desc"> 
 						<h4> {{entry.title }} </h4>
-						<p> {{ entry.start_date }} - {{ entry.end_date }} </p>
+						<p> {{ entry.start_date|date:"F Y" }} - {{ entry.end_date|date:"F Y" }} </p>
 						<p> {{ entry.body|linebreaks }} </p>
 					</div>
 				</div>
