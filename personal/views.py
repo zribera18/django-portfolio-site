@@ -11,7 +11,7 @@ class EducationView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Education').order_by('-start_date')
 
-#display image and summary of Career Experience
+# display image and summary of Career Experience
 class ExperienceView(generic.ListView):
 	model = Entry
 	template_name = 'personal/resume.html'
@@ -27,7 +27,7 @@ class ProjectView(generic.ListView):
 	def get_queryset(self):
 		return Entry.objects.filter(category = 'Projects').order_by('-start_date')
 
-# like a cover letter, this is a place to introduce yourself
+# a place to introduce yourself
 # in admin view, you can input html to further style this section
 class HomeView(generic.ListView):
 	model = Basic
@@ -36,6 +36,7 @@ class HomeView(generic.ListView):
 	def get_queryset(self):
 		return Basic.objects.filter(category = 'Home')
 
+# contact Information
 class ContactView(generic.ListView):
 	model = Basic
 	template_name = 'personal/basic.html'
